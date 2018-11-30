@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { TestModuleModule } from './test-module/test-module.module';
 import { FormsModule } from "@angular/forms";
+import { RouterModule, Routes } from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { GreetComponent } from './greet/greet.component';
@@ -14,6 +15,38 @@ import { CartDetailComponent } from './cart/cart-details.component';
 import { AngularWebStorageModule } from "angular-web-storage";
 import { HeaderComponent } from './header.component';
 import { ProfileComponent } from './profile.component';
+import { PageNotFoundComponent } from './page-not-found.component';
+
+
+const routes:Routes = [
+
+  {
+    path:'',//Default,
+    component:GreetComponent
+  },
+  {
+    path:'login',//Default,
+    component:LoginComponent
+  },
+  {
+    path:'products',//Default,
+    component:ProductsComponent
+  },
+  {
+    path:'my cart',//Default,
+    component:CartDetailComponent
+  },
+  {
+    path:'profile',//Default,
+    component:ProfileComponent
+  },
+  {
+    path:'**',//Default,
+    component:PageNotFoundComponent
+  }
+
+]
+
 
 @NgModule({
   declarations: [
@@ -26,13 +59,15 @@ import { ProfileComponent } from './profile.component';
     AddToCartComponent,
     CartDetailComponent,
     HeaderComponent,
-    ProfileComponent
+    ProfileComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     TestModuleModule,
     FormsModule,
-    AngularWebStorageModule
+    AngularWebStorageModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent]
