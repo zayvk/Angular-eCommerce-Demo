@@ -1,0 +1,29 @@
+<h1>My Cart Details</h1>
+
+<table class="table-responsive">
+    <thead>
+            <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                    <th>Category</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+    </thead>
+    
+    <tbody>
+            <tr *ngFor="let product of cartProducts, let i = index">
+                    <td>{{product.id}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.price}}</td>
+                    <td><img bind-src="product.imgPath"></td>
+                    <td>{{product.description}}</td>
+                    <td>
+                        <button>Remove</button>/
+                        <button>Checkout</button>
+                    </td>
+                </tr>
+    </tbody>
+    
+</table>
