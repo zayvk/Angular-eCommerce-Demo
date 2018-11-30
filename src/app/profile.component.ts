@@ -5,7 +5,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     template: `
                 <h1>Profile Component</h1>
                 <input type='text' [(ngModel)]='profileName'/>
-                <button (click)='updateName'>Update</button><br><br>
+                <button (click)='updateName()'>Update</button><br><br>
                 <h2>Profile Name - {{profileName}}</h2>
     `
 })

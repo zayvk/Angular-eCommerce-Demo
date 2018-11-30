@@ -20,7 +20,7 @@
                     <td><img bind-src="product.imgPath"></td>
                     <td>{{product.description}}</td>
                     <td>
-                        <button>Remove</button>/
+                        <button (click)="remove(i)">Remove</button>/
                         <button>Checkout</button>
                     </td>
                 </tr>

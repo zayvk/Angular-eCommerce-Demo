@@ -6,9 +6,10 @@ import { SessionStorage } from "angular-web-storage";
 @Injectable()
 export class CartService {
 
-    @SessionStorage()
+    
     cart:Products[];
-
+    
+    @SessionStorage()
     mycart:string;
 
     //Subject
@@ -40,5 +41,14 @@ export class CartService {
 
     getCartItems():Products[]{
         return this.cart;
+    }
+
+    removeFromCart(index:number){
+        this.cart.splice(index,1);
+        console.log('Removed from the cart.');
+        this.mycart = JSON.stringify(this.cart);
+
+        //Notify to the observer
+        this.cartSource.next(this.mycart);
     }
 }

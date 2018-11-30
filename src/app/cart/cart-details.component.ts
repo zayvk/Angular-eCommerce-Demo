@@ -23,4 +23,8 @@ export class CartDetailComponent {
         this.cartProducts = this.cartService.getCartItems();
     }
 
+    remove(index):void{
+        this.cartService.removeFromCart(index);
+    }
+
 }
