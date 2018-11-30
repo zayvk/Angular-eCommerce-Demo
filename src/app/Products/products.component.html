@@ -1,0 +1,27 @@
+ Enter Search : <input type="text" #search (blur)='doSearch($event.target.value)'/> <br><br>
+
+    <table class="table-responsive">
+        <thead>
+                <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Product Image</th>
+                        <th colspan="3">Actions</th>
+                    </tr>
+        </thead>
+        <tbody>
+                <tr *ngFor="let product of products" >
+                        <td>{{product.id}}</td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.price}}</td>
+                        <td><img bind-src="product.imgPath"></td>
+                        <td> <button [disabled]='isAdmin'>Edit</button>/
+                             <button *ngIf="isAdmin" (click)='showDetails(product)'>Details</button>/
+                             <app-add-to-cart [selectedProduct]='product'></app-add-to-cart>
+                        </td>
+                    </tr>
+        </tbody>
+        
+    
+    </table>
