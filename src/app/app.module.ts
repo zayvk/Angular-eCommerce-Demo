@@ -12,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { CartDetailComponent } from './cart/cart-details.component';
 import { AngularWebStorageModule } from "angular-web-storage";
+import { HeaderComponent } from './header.component';
+import { ProfileComponent } from './profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { AngularWebStorageModule } from "angular-web-storage";
     ProductsComponent,
     LoginComponent,
     AddToCartComponent,
-    CartDetailComponent
+    CartDetailComponent,
+    HeaderComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
