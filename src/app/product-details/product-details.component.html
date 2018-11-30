@@ -1,0 +1,10 @@
+<h3>Product Details for Product {{productname}}</h3>
+<div *ngFor="let product of products">
+  <div *ngIf="product.id == productId">
+  <span>{{product.id}}</span><br><br>
+  <span>{{product.name}}</span><br><br>
+  <span>{{product.price}}</span><br><br>
+  <span>{{product.description}}</span><br><br>
+  <span><img src="{{product.imgPath}}"></span>
+</div>
+</div>

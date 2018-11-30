@@ -16,6 +16,7 @@ import { AngularWebStorageModule } from "angular-web-storage";
 import { HeaderComponent } from './header.component';
 import { ProfileComponent } from './profile.component';
 import { PageNotFoundComponent } from './page-not-found.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 
 const routes:Routes = [
@@ -30,7 +31,11 @@ const routes:Routes = [
   },
   {
     path:'products',//Default,
-    component:ProductsComponent
+    component:ProductsComponent,
+     children:[{
+       path:'productdetails/:id',
+       component:ProductDetailsComponent
+     }]
   },
   {
     path:'my cart',//Default,
@@ -60,7 +65,8 @@ const routes:Routes = [
     CartDetailComponent,
     HeaderComponent,
     ProfileComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

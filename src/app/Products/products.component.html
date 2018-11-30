@@ -13,7 +13,7 @@
         <tbody>
                 <tr *ngFor="let product of products" >
                         <td>{{product.id}}</td>
-                        <td>{{product.name}}</td>
+                        <td><a [routerLink]="[ 'productdetails', product.id ]">{{product.name}}</a></td>
                         <td>{{product.price}}</td>
                         <td><img bind-src="product.imgPath"></td>
                         <td> <button [disabled]='isAdmin'>Edit</button>/
@@ -21,7 +21,11 @@
                              <app-add-to-cart [selectedProduct]='product'></app-add-to-cart>
                         </td>
                     </tr>
-        </tbody>
-        
+                    
+        </tbody>           
     
     </table>
+
+    <div>
+            <router-outlet></router-outlet>
+    </div>
