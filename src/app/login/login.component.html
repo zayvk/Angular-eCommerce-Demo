@@ -1,0 +1,10 @@
+<h3>Login</h3>
+<div>
+      <p>Enter Username: <input class="glyphicon glyphicon-user" [value]='name' type="text" [(ngModel)]="name" #uname placeholder="username"> <br> <br>
+         Enter Password: <input class="glyphicon glyphicon-lock" [value]='password' type="password" [(ngModel)]="password" placeholder="password">
+      </p>
+      <button (click)="doLogin()">Login</button> <br><br>
+
+      <h1>Name in Template - {{uname.value}}</h1>
+      <h1>Actual Name - {{name}}</h1>
+</div>
