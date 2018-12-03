@@ -20,6 +20,8 @@ import { ProfileComponent } from './profile.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { PhotosComponent } from './photos/photos.component';
+import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 
 const routes:Routes = [
@@ -57,6 +59,14 @@ const routes:Routes = [
     component: PhotosComponent
   },
   {
+    path:'register',
+    component: SignUpFormComponent
+  },
+  {
+    path:'reactiveform',
+    component: ReactiveFormComponent
+  },
+  {
     path:'**',
     component:PageNotFoundComponent
   }
@@ -79,7 +89,9 @@ const routes:Routes = [
     ProfileComponent,
     PageNotFoundComponent,
     ProductDetailsComponent,
-    PhotosComponent
+    PhotosComponent,
+    SignUpFormComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,

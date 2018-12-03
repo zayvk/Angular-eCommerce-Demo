@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export class MenuService {
     menuItems:string[];
     constructor() { 
-      this.menuItems = ['Login', 'Products', 'My Cart', 'Profile', 'Photos'];
+      this.menuItems = ['Login', 'Register', 'Products', 'My Cart', 'Profile', 'Photos', 'ReactiveForm'];
     }
 
     getItems():string[]{
