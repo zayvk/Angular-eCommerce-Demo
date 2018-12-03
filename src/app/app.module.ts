@@ -4,6 +4,8 @@ import { TestModuleModule } from './test-module/test-module.module';
 import { FormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { GreetComponent } from './greet/greet.component';
 import { ManualComponent } from './ManuallyCreated.component';
@@ -17,6 +19,7 @@ import { HeaderComponent } from './header.component';
 import { ProfileComponent } from './profile.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { PhotosComponent } from './photos/photos.component';
 
 
 const routes:Routes = [
@@ -50,9 +53,14 @@ const routes:Routes = [
     component:ProfileComponent
   },
   {
+    path:'photos',
+    component: PhotosComponent
+  },
+  {
     path:'**',
     component:PageNotFoundComponent
   }
+  
 
 ]
 
@@ -70,7 +78,8 @@ const routes:Routes = [
     HeaderComponent,
     ProfileComponent,
     PageNotFoundComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    PhotosComponent
   ],
   imports: [
     BrowserModule,
@@ -78,6 +87,7 @@ const routes:Routes = [
     FormsModule,
     AngularWebStorageModule,
     RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
