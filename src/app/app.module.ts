@@ -20,17 +20,21 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 
 
 const routes:Routes = [
-
   {
     path:'',//Default,
+    redirectTo: 'greet',
+    pathMatch:'full'
+  },
+  {
+    path:'greet',
     component:GreetComponent
   },
   {
-    path:'login',//Default,
+    path:'login',
     component:LoginComponent
   },
   {
-    path:'products',//Default,
+    path:'products',
     component:ProductsComponent,
      children:[{
        path:'productdetails/:id',
@@ -38,15 +42,15 @@ const routes:Routes = [
      }]
   },
   {
-    path:'my cart',//Default,
+    path:'my cart',
     component:CartDetailComponent
   },
   {
-    path:'profile',//Default,
+    path:'profile',
     component:ProfileComponent
   },
   {
-    path:'**',//Default,
+    path:'**',
     component:PageNotFoundComponent
   }
 
