@@ -36,5 +36,5 @@ export class ObservableDataComponent {
     //         this.subscription.unsubscribe();
     //     }
         
-    }
+    //}
 }
