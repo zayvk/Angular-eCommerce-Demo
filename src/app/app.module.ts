@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { TestModuleModule } from './test-module/test-module.module';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
-
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -22,6 +21,9 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { PhotosComponent } from './photos/photos.component';
 import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
+import { ReverseStrPipe } from './reversestr.pipe';
+import { BeforeAfterPipe } from './beforeafetr.pipe';
 
 
 const routes:Routes = [
@@ -67,6 +69,10 @@ const routes:Routes = [
     component: ReactiveFormComponent
   },
   {
+    path:'pipedemo',
+    component: PipeDemoComponent
+  },
+  {
     path:'**',
     component:PageNotFoundComponent
   }
@@ -91,7 +97,10 @@ const routes:Routes = [
     ProductDetailsComponent,
     PhotosComponent,
     SignUpFormComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    PipeDemoComponent,
+    ReverseStrPipe,
+    BeforeAfterPipe
   ],
   imports: [
     BrowserModule,
@@ -99,7 +108,8 @@ const routes:Routes = [
     FormsModule,
     AngularWebStorageModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

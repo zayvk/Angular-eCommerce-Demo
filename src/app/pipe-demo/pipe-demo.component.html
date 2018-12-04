@@ -1,0 +1,31 @@
+<h2>Product Name</h2>
+<div>
+    <span>Original = {{productName}}</span> <br>
+    <span>Uppercase = {{productName | uppercase}}</span><br>
+    <span>Lowercase = {{productName | lowercase}}</span>
+  <br>
+    <h3>Date</h3> <br>
+    <span> Date = {{today}}</span><br>
+    <span> Date = {{today | date}}</span><br>
+    <span> Date = {{today | date:'medium'}}</span><br>
+    <span> Date = {{today | date:'short'}}</span><br>
+    <span> Date = {{today | date:'shortdate'}}</span><br>
+    <span> Date = {{today | date:'MMM:dd:yyyy'}}</span><br>
+    <span> Date = {{today | date:'format'}}</span>
+  
+  <br>
+  
+    <h3>Currency</h3> <br>
+    <span>Currency = {{price}}</span><br>
+    <span>Currency = {{price | currency:'INR'}}</span><br>
+    <span>Currency = {{price | currency:'EUR'}}</span> 
+  <br>
+
+    <h1>Product Name</h1>
+    {{productName}} <br>
+    {{productName | reversestr}} <br>
+    {{productName | beforeafter}} <br>
+    {{productName | beforeafter:"This '":"' is awesome"}} <br>
+  
+  <span>{{toggle}}</span>
+</div>

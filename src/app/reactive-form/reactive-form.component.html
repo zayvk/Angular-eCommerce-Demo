@@ -1,67 +1,64 @@
-<body >
-    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
-        <div class="wrapper wrapper--w790">
-            <div class="card card-5">
-                <div class="card-heading">
-                    <h2 class="title">Reactive Registration Form</h2>
-                </div>
-                <div class="card-body">
-                    <form class="form-horizontal" [formGroup]="registerform">
-                        <div class="form-row m-b-55">
-                            <div class="name">Name</div>
-                            <div class="value">
-                                <div class="row row-space">
-                                    <div class="col-2">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="first_name">
-                                            <label class="label--desc">first name</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="last_name">
-                                            <label class="label--desc">last name</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="name">Address</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="text" name="address">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="name">Email</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row m-b-55">
-                            <div class="name">Phone</div>
-                            <div class="value">
-                                <div class="row row-refine">
-                                    <div class="col-9">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="phone">
-                                            <label class="label--desc">Phone Number</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <button class="btn btn--radius-2 btn--red" type="submit">Register</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+<h2>Reactive Form Demo</h2>
+<form class="form-horizontal"
+ [formGroup]="registerForm" 
+ (ngSubmit)="logForm(registerForm.value)">
+  <div class="container">
+    <div class="form-group">
+      <label>FirstName: </label>
+      <input type="text" class="form-control" 
+      formControlName="firstname">
+      <div class="text-danger"
+      *ngIf="registerForm.get('firstname').hasError('required')
+      && registerForm.get('firstname').touched">
+        First Name is required.....
+      </div>
     </div>
-
-</body>
+    <div class="form-group">
+      <label>LastName: </label>
+      <input type="text" class="form-control" 
+      formControlName="lastname">
+      <div class="text-danger"
+        *ngIf="registerForm.get('lastname').touched">
+        <p *ngIf="registerForm.get('lastname').hasError('required')">Last Name is required.....</p>
+        <p *ngIf="registerForm.get('lastname').hasError('minlength')">Min Length.....</p>
+        <p *ngIf="registerForm.get('lastname').hasError('maxlength')">Max Length.....</p>
+      </div>
+    </div>
+    <fieldset formGroupName="address">
+      <div class="form-group">
+        <label>City: </label>
+        <input type="text" class="form-control" 
+        formControlName="city">
+        <div class="text-danger"
+        *ngIf="registerForm.get('address.city').touched">
+        <p *ngIf="registerForm.get('address.city').hasError('required')">City is required.....</p>        
+      </div>
+      </div>
+      <div class="form-group">
+        <label>Zip: </label>
+        <input type="text" class="form-control" 
+        formControlName="zip">
+        <div class="text-danger"
+        *ngIf="registerForm.get('address.zip').touched">
+        <p *ngIf="registerForm.get('address.zip').hasError('required')">Zipcode is required.....</p>        
+        <p *ngIf="registerForm.get('address.zip').hasError('pattern')">Pattern mismatch - zipcode should be 5 digits.....</p>        
+      </div>
+      </div>
+    </fieldset>
+    <div class="form-group">
+      <label>Email: </label>
+      <input type="text" class="form-control" 
+      formControlName="emailAddr">
+      <div class="text-danger"
+      *ngIf="registerForm.get('emailAddr').touched">
+      <p *ngIf="registerForm.get('emailAddr').hasError('required')">Email is required.....</p>        
+      <p *ngIf="registerForm.get('emailAddr').hasError('pattern')">Pattern mismatch - Email Address.....</p>        
+      <p *ngIf="registerForm.get('emailAddr').hasError('emailDomain')">Email must be of Persistent.com.....</p>        
+    </div>
+    </div>
+    <div class="form-group">
+      <input type="submit" class="btn btn-primary" 
+      [disabled]=registerForm.invalid value="Submit">
+    </div>
+  </div>
+</form>
