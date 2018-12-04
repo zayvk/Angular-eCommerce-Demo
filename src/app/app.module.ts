@@ -24,6 +24,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { ReverseStrPipe } from './reversestr.pipe';
 import { BeforeAfterPipe } from './beforeafetr.pipe';
+import { ObservableDataComponent } from './observabledata.component';
 
 
 const routes:Routes = [
@@ -69,6 +70,10 @@ const routes:Routes = [
     component: ReactiveFormComponent
   },
   {
+    path:'asyncpipe',
+    component: ObservableDataComponent
+  },
+  {
     path:'pipedemo',
     component: PipeDemoComponent
   },
@@ -100,7 +105,8 @@ const routes:Routes = [
     ReactiveFormComponent,
     PipeDemoComponent,
     ReverseStrPipe,
-    BeforeAfterPipe
+    BeforeAfterPipe,
+    ObservableDataComponent
   ],
   imports: [
     BrowserModule,
